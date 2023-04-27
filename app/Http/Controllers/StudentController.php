@@ -28,4 +28,15 @@ class StudentController extends Controller
   Student::whereIn('id',$ids)->delete();
   return redirect()->back();
 }
+public function edit(Request $request ,$id) 
+{
+  $post=Student::findorFail($id);
+  $post->name=$request->name;
+  $post->phone=$request->phone;
+  $post->email=$request->email;
+  $post->address=$request->addresse;
+  $post->save();
+  return redirect()->back();
+
+}
 }

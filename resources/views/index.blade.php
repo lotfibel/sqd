@@ -41,9 +41,10 @@
                 <div class=" w-100 p-2 container border background" style=" height: 90%;border-radius: 20px;min-height: 75vh;">
                 <div class="top w-100 p-2 row align-items-center p-2 pt-4 pb-4" style="height: 15%;">
                     <div class="col">
-                   <form>
-                        <input type="email" class="form-control" id="exampleInputEmail1"  placeholder="recherche" aria-describedby="emailHelp">
-             </form>
+                   <form action="#">
+                        <input type="text" class="form-control recherche" id="exampleInputEmail1"  placeholder="recherche" >
+                       
+                                    </form>
 
 
                     </div>
@@ -79,9 +80,9 @@
                 </div>
 
                 <div class="bottom  row  gx-0 " style="overflow-x:hidden;">
-
+                  
                     <table class="table table-hover students"  >
-
+                      
                         <thead>
                             <tr>
                               <th scope="col"><div class="form-check">
@@ -108,14 +109,14 @@
                           <tbody>
 
 
-                          <tr>
+                          <tr data-id="{{$post->id}}">
                             <th scope="row"><div class="form-check">
                               <input class="form-check-input" data-checkbox type="checkbox"name="ids[{{$post->id}} ]" value="{{$post->id}}" id="defaultCheck1">
                               <label class="form-check-label" for="defaultCheck1">
 
                               </label>
                             </div></th>
-                            <td>{{$post->name}}</td>
+                            <td class="name">{{$post->name}}</td>
                             <td>{{$post->phone}}</td>
 
                             <td>
@@ -155,14 +156,16 @@
                       </svg>
 
                   </div>
-
-                  <div class="student-info">
+               
+                  <div class="student-info" data-id="">
                     <button type="button" class="close-student position-absolute top-0 end-0 m-4 btn-close" aria-label="Close"> </button>
-                    <div class=" p-4 mb-1  ms-1 me-1 ">
+                    @foreach($posts as $post)
+                    <div class="one-student p-4 mb-1  ms-1 me-1 d-none " data-id="{{$post->id}}">
+                      
                         <p  class=" mb-0 ">Nom et prenom:</p>
-                        <h1 class="mb-4 fs-4 "></h1>
-                        <p  class="mb-0" >Numéro de téléphone:</p>
-                        <h2 class=" mb-4 fs-4 "></h2>
+                        <h1 class="mb-4 fs-4 name">{{$post->name}}</h1>
+                        <p  class="mb-0 " >Numéro de téléphone:</p>
+                        <h2 class=" mb-4 fs-4 number">{{$post->phone}}</h2>
                         <p class="mb-2">Cour et Formation:</p>
                         <div class="">
                         <a href="./math.html">
@@ -174,81 +177,52 @@
                       </div>
                         <div class="general-information">
                           <p class="mb-0 mt-4">Adresse Email:</p>
-                        <p class=" bold fs-4"></p>
+                        <p class=" bold fs-4 email">{{$post->email}}</p>
                         <p class="mt-3 mb-0">Adresse et Résidence:</p>
-                        <p class="mb-3 fs-4"></p>
+                        <p class="mb-3 fs-4 adresse">{{$post->address}}</p>
                         <div class="mt-5 d-flex justify-content-end mw-100">
-
-                            <button type="button" class="me-1 btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" color="white" width="16" height="16" fill="currentColor" class="mb-1 bi bi-trash3" viewBox="0 0 16 16">
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
-                              </svg></button>
                         <button type="button"class="modify-student btn btn-primary " style="color: white;" >Modifier</button>
                         </div>
                         </div>
-                        <div class="specefic-information">
-                          <div class="progress-bar mt-4 mb-2">
-                            <div class="progresscontainers d-flex w-100 h-100 ">
-                              <div class="progress-block"></div>
-                            <div class="progress-block"></div>
-                            <div class="progress-block"></div>
-                            <div class="progress-block"></div>
-                            </div>
-
-                            <div class="payment-bar d-flex">
-                              <div class="payment-block bg-success"></div>
-                              <div class="payment-block bg-success"></div>
-                              <div class="payment-block bg-success"></div>
-
-                            </div>
-                            <div class="presence-bar d-flex">
-                              <div class="payment-block bg-dark"></div>
-                              <div class="payment-block bg-dark"></div>
-
-                            </div>
-
-                          </div>
-                          <p class="mb-0">dernier payement:</p>
-                          <p>17/07/2023 a paye 2000da</p>
-                          <p class="mb-0">solde:</p>
-                          <h1 style="font-size: 40px;">1500da</h1>
-                          <div class="btns d-flex flex-column align-items-end">
-                             <button type="button"class="modify-student btn btn-success mb-2" style="color: white;" >ajouter un payement</button>
-                          <button type="button"class="modify-student btn btn-primary " style="color: white;" >Marquer present</button>
-
-                          </div>
-
-
-                        </div>
+                        
                     </div>
+                    @endforeach
                   </div>
+
                   <div class="modify-student-form d-none p-4">
-                    <form action="{{route('students.store')}}" method="POST">
+                  <button type="button" class="close-student position-absolute top-0 end-0 m-4 btn-close" aria-label="Close"> </button>
+                  <form action="{{route('posts.edit',1)}}">
+                    @csrf
+                   
                         <div class="mb-3">
                             <label for="" class="form-label" aria-placeholder="Pam Halpert" style="font: bolder;"><h6> Nom et Prénom:</h6></label>
-                            <input class="form-control" type="text" name="name" placeholder="Pam Halpert" aria-label="default input example">
+                            <input class="form-control name" type="text" name="name" placeholder="Pam Halpert" aria-label="default input example">
                         </div>
                     <div class="mb-3">
                         <div class="form-group">
-                            <label for="inputPhoneNumber"><h6 class="mt-2"> Numéro de Téléph:</h6></label>
-                            <input type="tel" class="form-control" id="inputPhoneNumber"name="phone" placeholder="0775509056" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                            <label for="inputPhoneNumber"><h6 class="mt-2"> Numéro de Téléphone:</h6></label>
+                            <input type="tel" class="form-control number" id="inputPhoneNumber"name="phone" placeholder="0775509056"  required>
                         </div>
                     </div>
 
 
                         <div class="mb-1">
                         <label for="exampleInputEmail1" class="form-label "><h6 class="mt-3">Adresse Email:</h6></label>
-                        <input type="email" class="form-control" name="email" placeholder="p_halpert@estin.dz" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" class="form-control email" name="email" placeholder="p_halpert@estin.dz" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
 
                         <div class="mb-4">
                             <label for="" class="form-label mt-2"><h6>Adresse de Résidence:</h6></label>
-                            <input class=" mb-5 form-control" type="text" name="addresse" placeholder="amizour bat 15 num 345" aria-label="default input example">
+                            <input class=" mb-5 form-control adresse" type="text" name="addresse" placeholder="amizour bat 15 num 345" aria-label="default input example">
                         </div>
 
                         <div class="mb-5 d-flex justify-content-end mw-100">
-
-                        </div>
-                    </form>
+                        
+                            
+                        <button type="submit" class="conrimer-modifier btn btn-primary "style="color: white;" aria-pressed="true">Confirmer</button>
+</form>
+                      </div>
+                    
                 </div>
 
                     </div>

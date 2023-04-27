@@ -27,6 +27,8 @@ Route::post('/courses', [CourseController::class, 'store'])->name('courses.store
 Route::get('/store', [StudentController::class, 'store'])->name('students.store');
 Route::get('/delete/{id}',[StudentController::class,'delete'])->name('students.delete');
 Route::post('/multi-delete', [StudentController::class, 'multiDelete'])->name('posts.multi-delete');
+Route::get('/edit/{id}',[StudentController::class,'edit'])->name('posts.edit');
+
 
 
 

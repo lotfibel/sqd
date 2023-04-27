@@ -8,7 +8,8 @@
     @include('layouts.head')
 </head>
 <body style="height: 100vh;">
-@include('layouts.side_bar')
+        @include('layouts.side_bar')
+
     <div class="main-side col-10 container  gx-5"  style="overflow: scroll;" >
             <div class="row  d-flex align-items-center w-100 " style="flex-wrap: nowrap;height: 10%;">
                 <h1 class="h1  text gx-5 mt-3 col-9 ms-1 fs-1" >Bienvenue</h1>
@@ -119,7 +120,7 @@
                         <div class="vos-cours  "><h4 class="fw-light ps-3 pt-3">vos cours d'aujourd'hui </h4> </div>
                        
                         <div class="col-4   text-light rounded cours-section" >
-                         <a href="{{route('page.math')}}" class="text-light" >
+                         <a href="./math.html" class="text-light" >
                             <div class="p-1  cours-card rounded m-3 ms-4 me-4 ms-4 me-4 p-3" style="min-width: 100px;">
                             <h4>Maths 2as</h4>
                             <p>Mardi a 17h</p>
@@ -127,7 +128,7 @@
                         </a>
                         </div>
                         <div class="col-4   text-light rounded cours-section" >
-                            <a href="{{route('page.education')}}" class="text-light" >
+                            <a href="./educationFinanciere.html" class="text-light" >
                                <div class="p-1  cours-card rounded m-3 ms-4 me-4 ms-4 me-4 p-3" style="min-width: 100px;">
                                <h4>Education financiere</h4>
                                <p>Mercredi a 17h</p>
@@ -213,6 +214,6 @@
                 "> </div>
     </div>
       </div>
-@include('layouts.script')
+     @include('layouts.script')
 </body>
 </html>
